@@ -1,44 +1,39 @@
 import java.util.Scanner;
-
-public class Pitzsaria {
-
-    public static void main ( String [] args) {
-
-        System.out.println("| Bem vindo à Pitzsaria |");
-
-        Scanner scan = new Scanner (System.in);
+public class Pitzsaria{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Bem vindo a Pitzsaria P.G.");
 
         Pedido pedido = new Pedido();
-        String verify = "s";
+        
+        String seguir = "s";
+
         do{
-        ItemDoPedido item = new ItemDoPedido();
-        System.out.println("-------------------------");
-        System.out.println("Informe o tipo da Pitzsa: ");
-        item.setTipo(scan.nextLine());
-        System.out.println("-------------------------");
+            ItemDoPedido item = new ItemDoPedido();
 
-        System.out.println("Informe o sabor: ");
-        item.setSabor(scan.nextLine());
-        System.out.println("-------------------------");
+            System.out.print("Informe o tipo de pitzsa (Tradicional ou Especial): ");
+            item.setTipo(scan.nextLine());
 
-        System.out.println("Informe o valor: ");
-        item.setValor(scan.nextDouble());
+            System.out.print("Informe o sabor de pitzsa: ");
+            item.setSabor(scan.nextLine());
+
+            pedido.addItem(item);
+            
+            pedido.setTotal(item.tipos());
+
+            System.out.println("> mais alguma coisa rlk?");
+            seguir = scan.nextLine();
+
+        } while(seguir.equalsIgnoreCase("s"));
+
+        System.out.print("Nome do cliente: ");
+        pedido.setCliente(scan.nextLine());
+
+        System.out.print("Taxa de entrega: ");
+        pedido.setTaxaDeEntrega(scan.nextDouble());
         scan.nextLine();
-        pedido.adicionarItemDoPedido(item);
-        System.out.println("-------------------------");
-        System.out.println(" mais alguma coisa rlk?");
-        verify = scan.nextLine();
-        }while(verify.equalsIgnoreCase("s"));
 
-
-
-        System.out.println("Nome do cliente: ");
-        pedido.setCliente(scan.next());
-        System.out.println("-------------------------");
-
-        System.out.println("Taxa de entrega: ");
-        pedido.setTaxaEntrega(scan.nextDouble());
-        System.out.println("-------------------------\n");
+        pedido.setTotal(pedido.getTaxaDeEntrega());
 
         pedido.imprimir();
     }
