@@ -19,7 +19,7 @@ public class Pitzsaria{
 
             pedido.addItem(item);
             
-            pedido.setTotal(item.tipos());
+            pedido.setTotal(item.getValor());
 
             System.out.println("> mais alguma coisa rlk?");
             seguir = scan.nextLine();
@@ -29,9 +29,8 @@ public class Pitzsaria{
         System.out.print("Nome do cliente: ");
         pedido.setCliente(scan.nextLine());
 
-        System.out.print("Taxa de entrega: ");
-        pedido.setTaxaDeEntrega(scan.nextDouble());
-        scan.nextLine();
+        System.out.print("Mora onde truta: ");
+        pedido.setTaxaDeEntrega(scan.nextLine());
 
         pedido.setTotal(pedido.getTaxaDeEntrega());
 

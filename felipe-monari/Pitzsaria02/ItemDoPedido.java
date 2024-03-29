@@ -7,7 +7,7 @@ public class ItemDoPedido{
     }
 
     public String getTipo(){
-        return this.tipo;
+        return this.tipo.trim();
     }
 
     public void setSabor(String sabor){
@@ -17,8 +17,14 @@ public class ItemDoPedido{
     public String getSabor(){
         return this.sabor;
     }
-        public double tipos(){
-        if(this.tipo.equalsIgnoreCase("tradicional")){
+
+    
+    public void setValor(Double valor){
+        this.valor = valor;
+    }
+
+    public double getValor(){
+        if(this.getTipo().equalsIgnoreCase("tradicional")){
             return 40;
         }else{
             return 50;
