@@ -42,8 +42,14 @@ public class Compra {
         System.out.println("-------------------------");
 
         System.out.println("Informe o preco: ");
-        double preco = scan.nextDouble();
-        produto.setPreco(preco);
+        try {
+            produto.setPreco(scan.nextDouble());
+            scan.nextLine();
+        }catch(InputMismatchException e){
+            System.err.println("VOCe eh 'BURRO' & DIJITO EHADO");
+            System.exit(1);
+        }
+
 
         System.out.println("-------------------------");
 
